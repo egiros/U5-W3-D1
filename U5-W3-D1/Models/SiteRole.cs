@@ -45,7 +45,8 @@ namespace U5_W3_D1.Models
                     if (user == null) return new string[] { };
                     return user.isAdmin ? new string[] { "Admin" } : new string[] { "User" };
                 }
-            
+            //throw new NotImplementedException();
+
         }
 
         public override string[] GetUsersInRole(string roleName)
