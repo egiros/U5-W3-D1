@@ -26,44 +26,6 @@ namespace U5_W3_D1.Controllers
             return View(cart);
         }
 
-        // GET: Carrello/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Prodotti prodotti = db.Prodotti.Find(id);
-            if (prodotti == null)
-            {
-                return HttpNotFound();
-            }
-            return View(prodotti);
-        }
-
-        // GET: Carrello/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Carrello/Create
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idProdotto,Nome,Foto,Foto2,Foto3,Prezzo,Consegna,Ingredienti")] Prodotti prodotti)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Prodotti.Add(prodotti);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(prodotti);
-        }
-
         // GET: Carrello/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -104,12 +66,28 @@ namespace U5_W3_D1.Controllers
                     var productToRemove = cart.FirstOrDefault(p => p.idProdotto == id);
                     if (productToRemove != null)
                     {
-                        cart.Remove(productToRemove);
+                        if (productToRemove.quantita > 1)
+                        {
+                            productToRemove.quantita--;
+                        }
+                        else
+                        {
+                            cart.Remove(productToRemove);
+                        }
                     }
                 }
 
                 return RedirectToAction("Index");
             }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
 
         // POST: Carrello/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -120,15 +98,6 @@ namespace U5_W3_D1.Controllers
             db.Prodotti.Remove(prodotti);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
 
         [HttpPost]
@@ -158,7 +127,7 @@ namespace U5_W3_D1.Controllers
                     Dettagli newDetail = new Dettagli();
                     newDetail.idOrdini_FK = newOrder.idOrdine;
                     newDetail.idProdotto_FK = product.idProdotto;
-                    newDetail.Quantità = 1;
+                    newDetail.Quantità = Convert.ToInt32(product.quantita);
 
                     // Save the order detail to the database
                     db.Dettagli.Add(newDetail);

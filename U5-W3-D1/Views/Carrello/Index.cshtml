@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Prezzo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Consegna)
+                @Html.DisplayFor(modelItem => item.Consegna.Minutes) Minuti
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ingredienti)
@@ -54,6 +54,8 @@
     }
 
 </table>
+<p>Totale: @Model.Sum(item => item.Prezzo * item.Quantità) €</p>
+<p>Totale: @string.Format("{0:F2}", Model.Sum(item => item.Prezzo * item.Quantità)) €</p>
 
 @using (Html.BeginForm("Ordina", "Carrello", FormMethod.Post))
 {

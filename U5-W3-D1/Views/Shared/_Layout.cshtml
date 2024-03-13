@@ -27,9 +27,9 @@
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li>
+                    <li class="ms-auto">
                         <a href="@Url.Action("Index", "Home", new { area = "" })" class="nav-link">
-                            <i class="material-symbols-outlined" style="vertical-align: top" ;>home</i>Home
+                            <i class="material-symbols-outlined" style="vertical-align: top" ;>home</i>Home  |
                         </a>
                         @*@Html.ActionLink("  Home", "Index", "Home", new { area = "" }, new { @class = "nav-link bi bi-house-door-fill" })*@
                     </li>
@@ -38,28 +38,28 @@
                     @*<li>@Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>
+                        <li >
                             <a href="@Url.Action("Index", "Prodotti", new { area = "" })" class="nav-link">
-                                <i class="material-symbols-outlined" style="vertical-align: top" ;>restaurant</i>Menù
+                                <i class="material-symbols-outlined" style="vertical-align: top" ;>restaurant</i>Menù  |
                             </a>
                         </li>
                         <li>
                             <a href="@Url.Action("Index", "Carrello", new { area = "" })" class="nav-link">
-                                <i class="material-symbols-outlined" style="vertical-align: top" ;>shopping_cart_checkout</i>Carrello
+                                <i class="material-symbols-outlined" style="vertical-align: top" ;>shopping_cart_checkout</i>Il Tuo Ordine  |
                             </a>
                             @*@Html.ActionLink("  Carrello", "Index", "Carrello", new { area = "" }, new { @class = "nav-link bi bi-cart-check-fill" })*@
                         </li>
 
-                        <li class="ms-auto">
+                        <li>
                             <a href="@Url.Action("Logout", "Home", new { area = "" })" class="nav-link">
-                                <i class="material-symbols-outlined" style="vertical-align: top" ;>logout</i>Logout
+                                <i class="material-symbols-outlined" style="vertical-align: top" ;>logout</i>
                             </a>
                             @*@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link " })*@
                         </li>
                     }
                     else
                     {
-                        <li class="ms-auto">
+                        <li>
                             <a href="@Url.Action("Login", "Home", new { area = "" })" class="nav-link">
                                 <i class="material-symbols-outlined" style="vertical-align: top" ;>person</i>Login
                             </a>
@@ -74,7 +74,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Pizza & Co. - Sviluppato da Egidio Roseti</p>
+            <p>&copy; @DateTime.Now.Year - ARRECREATE. - Sviluppato da Egidio Roseti</p>
         </footer>
     </div>
 

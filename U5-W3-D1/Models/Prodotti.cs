@@ -38,5 +38,8 @@ namespace U5_W3_D1.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dettagli> Dettagli { get; set; }
+
+        [NotMapped]
+        public int? quantita { get; set; }
     }
 }
