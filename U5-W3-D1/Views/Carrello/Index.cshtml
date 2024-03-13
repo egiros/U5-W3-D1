@@ -4,11 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Le Nostre Pizze</h2>
+<h2>Carrello</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -16,12 +14,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Foto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Foto2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Foto3)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Prezzo)
@@ -42,13 +34,7 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                <img src="/content/img/@Html.DisplayFor(modelItem => item.Foto)" alt="pizza" class="w-25" />
-            </td>
-            <td>
-                <img src="/content/img/@Html.DisplayFor(modelItem => item.Foto2)" alt="pizza" class="w-25" />
-            </td>
-            <td>
-                <img src="/content/img/@Html.DisplayFor(modelItem => item.Foto3)" alt="pizza" class="w-25" />
+                <img src="/Content/img/@Html.DisplayFor(modelItem => item.Foto)" alt="pizza" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Prezzo)
@@ -63,12 +49,24 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.idProdotto }) |
                 @Html.ActionLink("Details", "Details", new { id = item.idProdotto }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.idProdotto })
-                <div class="btn btn-success menu-button rounded-0 buy-button px-4 ms-2" onclick="location.href='@Url.Action("AddToCart", "Prodotti", new { id = item.idProdotto })'">@item.Prezzo.ToString("F2")€</div>
             </td>
-
-
         </tr>
     }
 
 </table>
 
+@using (Html.BeginForm("Ordina", "Carrello", FormMethod.Post))
+{
+    <div class="input-group">
+        <span class="input-group-text">Note</span>
+        <textarea id="note" name="note" required class="form-control" aria-label="With textarea"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <div class="input-group">
+            <span class="input-group-text" id="basic-addon3">Indirizzo</span>
+            <input type="text" class="form-control" id="indirizzo" name="indirizzo" required aria-describedby="basic-addon3 basic-addon4">
+        </div>
+    </div>
+    <input type="submit" value="Ordina" />
+}

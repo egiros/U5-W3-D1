@@ -44,6 +44,14 @@ namespace U5_W3_D1.Controllers
             }
         }
 
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        
+
         public ActionResult Register()
         {
 

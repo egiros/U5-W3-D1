@@ -10,18 +10,23 @@ using U5_W3_D1.Models;
 
 namespace U5_W3_D1.Controllers
 {
-    [Authorize]
-    public class ProdottiController : Controller
+    public class CarrelloController : Controller
     {
         private ModelDbContext db = new ModelDbContext();
 
-        // GET: Prodotti
+        // GET: Carrello
         public ActionResult Index()
         {
-            return View(db.Prodotti.ToList());
+            var cart = Session["cart"] as List<Prodotti>;
+            if (cart == null || !cart.Any())
+            {
+                TempData["CartMessage"] = "Il carrello è vuoto";
+                return RedirectToAction("Index", "Prodotti");
+            }
+            return View(cart);
         }
 
-        // GET: Prodotti/Details/5
+        // GET: Carrello/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +41,13 @@ namespace U5_W3_D1.Controllers
             return View(prodotti);
         }
 
-        // GET: Prodotti/Create
+        // GET: Carrello/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Prodotti/Create
+        // POST: Carrello/Create
         // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +64,7 @@ namespace U5_W3_D1.Controllers
             return View(prodotti);
         }
 
-        // GET: Prodotti/Edit/5
+        // GET: Carrello/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,7 +79,7 @@ namespace U5_W3_D1.Controllers
             return View(prodotti);
         }
 
-        // POST: Prodotti/Edit/5
+        // POST: Carrello/Edit/5
         // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,22 +95,23 @@ namespace U5_W3_D1.Controllers
             return View(prodotti);
         }
 
-        // GET: Prodotti/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
+        // GET: Carrello/Delete/5
+            public ActionResult Delete(int? id)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Prodotti prodotti = db.Prodotti.Find(id);
-            if (prodotti == null)
-            {
-                return HttpNotFound();
-            }
-            return View(prodotti);
-        }
+                var cart = Session["cart"] as List<Prodotti>;
+                if (cart != null)
+                {
+                    var productToRemove = cart.FirstOrDefault(p => p.idProdotto == id);
+                    if (productToRemove != null)
+                    {
+                        cart.Remove(productToRemove);
+                    }
+                }
 
-        // POST: Prodotti/Delete/5
+                return RedirectToAction("Index");
+            }
+
+        // POST: Carrello/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -125,17 +131,45 @@ namespace U5_W3_D1.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult AddToCart(int id)
+        [HttpPost]
+        public ActionResult Ordina(string note, string indirizzo)
         {
-            var prodotto = db.Prodotti.Find(id);
-            if (prodotto != null)
+            ModelDbContext db = new ModelDbContext();
+            var userId = db.Utenti.FirstOrDefault(u => u.Email == User.Identity.Name).idUtente;
+
+            var cart = Session["cart"] as List<Prodotti>;
+            if (cart != null && cart.Any()) // Check if the cart is not empty
             {
-                var cart = Session["cart"] as List<Prodotti> ?? new List<Prodotti>();
-                cart.Add(prodotto);
-                Session["cart"] = cart;
-                TempData["CreateMess"] = "Prodotto aggiunto al carrello";
+                // Create a new order
+                Ordini newOrder = new Ordini();
+                newOrder.DataOrdine = DateTime.Now;
+                newOrder.isEvaso = false;
+                newOrder.idUtente_FK = userId;
+                newOrder.Indirizzo = indirizzo;
+                newOrder.Totale = cart.Sum(p => p.Prezzo);
+                newOrder.Note = note;
+
+                // Save the order to the database
+                db.Ordini.Add(newOrder);
+                db.SaveChanges();
+
+                foreach (var product in cart)
+                {
+                    Dettagli newDetail = new Dettagli();
+                    newDetail.idOrdini_FK = newOrder.idOrdine;
+                    newDetail.idProdotto_FK = product.idProdotto;
+                    newDetail.Quantità = 1;
+
+                    // Save the order detail to the database
+                    db.Dettagli.Add(newDetail);
+                    db.SaveChanges();
+                }
+
+                // Clear the cart
+                cart.Clear();
             }
-            return RedirectToAction("Index");
+
+            return RedirectToAction("Index", "Prodotti");
         }
     }
 }
