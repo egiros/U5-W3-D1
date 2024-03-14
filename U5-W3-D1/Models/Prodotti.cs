@@ -2,6 +2,7 @@ namespace U5_W3_D1.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -40,6 +41,7 @@ namespace U5_W3_D1.Models
         public virtual ICollection<Dettagli> Dettagli { get; set; }
 
         [NotMapped]
+        [Display(Name = "Quantità")]
         public int? quantita { get; set; }
     }
 }

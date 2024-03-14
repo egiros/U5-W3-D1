@@ -1,0 +1,87 @@
+﻿@model IEnumerable<U5_W3_D1.Models.Ordini>
+
+
+@{
+    ViewBag.Title = "OrdiniUtente";
+}
+
+@{
+    ViewBag.Title = "OrdiniUtente";
+    bool isUserNamePrinted = false;
+}
+
+<div class="container mt-5">
+    @if (!Model.Any())
+    {
+        <h3 class="text-center">Nessun Ordine Effettuato</h3>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            if (!isUserNamePrinted)
+            {
+                <h2 class="text-center heading mt-3 mb-2">Benvenuto @Html.DisplayFor(modelItem => item.Utenti.Nome) </h2>
+                isUserNamePrinted = true;
+                <h4 class="text-center mb-4">I tuoi ordini</h4>
+            }
+
+            <div class="row mb-5 text-center mb-md-3 align-items-center border rounded bg-white shadow mx-4 mx-sm-0">
+                <div class="col-12 text-center col-md-1 py-1 py-md-2">
+                    <span class="text-secondary">N.</span> @Html.DisplayFor(modelItem => item.idOrdine)
+                </div>
+                @{
+                    var dataOrdine = item.DataOrdine.Date;
+                    var oggi = DateTime.Today;
+                    var ieri = DateTime.Today.AddDays(-1);
+                }
+                <div class="col-12 text-center col-md-3 py-0 py-md-2">
+                    <span class="me-2">
+                        @if (dataOrdine == oggi)
+                        {
+                            @:Oggi
+                        }
+                        else if (dataOrdine == ieri)
+                        {
+                            @:Ieri
+                        }
+                        else
+                        {
+                            @item.DataOrdine.ToString("dd/MM/yyyy")
+                        }
+                    </span>
+                    <span>@item.DataOrdine.ToString("HH:mm")</span>
+                </div>
+                <div class="col-12 text-center col-md-3 py-0 py-md-2">
+                    @item.Utenti.Nome @item.Utenti.Cognome
+                </div>
+                <div class="col-12 text-center col-md-1 py-0 py-md-2">
+                    @Html.DisplayFor(modelItem => item.Totale)€
+                </div>
+                <div class="col-12 text-center col-md-1 py-0 py-md-2">
+                    @if (item.isEvaso == false)
+                    {
+                        <span class="badge bg-danger">Non evaso</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">Evaso</span>
+                    }
+                </div>
+                <div class="col-12 col-md-3 py-2  text-center text-md-end">
+                    @Html.ActionLink(" ", "Details", new { id = item.idOrdine }, new { @class = "bi bi-list btn btn-secondary rounded-1 ms-2 w-25", @onclick = "loadOrderDetails(" + item.idOrdine + "); return false;" })
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<div id="orderDetails"></div>
+
+<script>
+    function loadOrderDetails(orderId) {
+        $.get('@Url.Action("Details", "Ordini")', { id: orderId }, function (data) {
+            $('#orderDetails').html(data);
+        });
+    }
+</script>

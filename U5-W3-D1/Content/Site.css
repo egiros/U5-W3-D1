@@ -4,7 +4,6 @@
     font-style: italic;
 }
 
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     margin-top: 15px;
@@ -27,7 +26,9 @@ textarea {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
     /*background:linear-gradient(-120deg, #ee3124, #00a160, #ffc425) no-repeat;*/
     /*background-size: cover;*/
     background-color: #ECECEC;
@@ -38,6 +39,6 @@ body {
 }
 
 
-.material-symbols-outlined {
+/*.material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
-}
+}*/

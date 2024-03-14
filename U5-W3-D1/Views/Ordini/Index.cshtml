@@ -4,59 +4,118 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Ordini</h2>
+<h2 class="text-center heading mt-3 mb-0 myHeading display-2 text-white">Gestione ordini</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Utenti.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Indirizzo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Totale)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isEvaso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Note)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataOrdine)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Utenti.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Indirizzo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Totale)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isEvaso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Note)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataOrdine)
-        </td>
-        <td>
-            @Html.ActionLink("Evadi Ordine", "isEvaso", new { id=item.idOrdine }, new {@class="brn btn-success"}) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idOrdine })
-        </td>
-    </tr>
+<div id="orderDetails"></div>
+
+<div class="container mt-5">
+    @foreach (var item in Model)
+    {
+        <div class="row mb-5 text-center mb-md-3 align-items-center border rounded bg-white shadow mx-4 mx-sm-0">
+            <div class="col-12 text-center col-md-1 py-1 py-md-2">
+                <span class="text-secondary">N.</span> @Html.DisplayFor(modelItem => item.idOrdine)
+            </div>
+            @{
+                var dataOrdine = item.DataOrdine.Date;
+                var oggi = DateTime.Today;
+                var ieri = DateTime.Today.AddDays(-1);
+            }
+            <div class="col-12 text-center col-md-3 py-0 py-md-2">
+                <span class="me-2">
+                    @if (dataOrdine == oggi)
+                    {
+                        @:Oggi
+                    }
+                    else if (dataOrdine == ieri)
+                    {
+                        @:Ieri
+                    }
+                    else
+                    {
+                        @item.DataOrdine.ToString("dd/MM/yyyy")
+                    }
+                </span>
+                <span>@item.DataOrdine.ToString("HH:mm")</span>
+            </div>
+            <div class="col-12 text-center col-md-3 py-0 py-md-2">
+                @item.Utenti.Nome @item.Utenti.Cognome
+            </div>
+            <div class="col-12 text-center col-md-1 py-0 py-md-2">
+                @Html.DisplayFor(modelItem => item.Totale)€
+            </div>
+            <div class="col-12 text-center col-md-1 py-0 py-md-2">
+                @if (item.isEvaso == false)
+                {
+                    <span class="badge bg-danger">Non evaso</span>
+                }
+                else
+                {
+                    <span class="badge bg-success">Evaso</span>
+                }
+            </div>
+            <div class="col-12 col-md-3 py-2  text-center text-md-end">
+                @Html.ActionLink(" ", "Details", new { id = item.idOrdine }, new { @class = "bi bi-list btn btn-secondary rounded-1 ms-2 w-25", @onclick = "loadOrderDetails(" + item.idOrdine + "); return false;" })
+                @if (item.isEvaso == false)
+                {
+                    @Html.ActionLink(" ", "isEvaso", new { id = item.idOrdine }, new { @class = "bi bi-arrow-bar-right btn btn-success rounded-1 w-25" })
+                }
+                else
+                {
+                    @Html.ActionLink(" ", "isntEvaso", new { id = item.idOrdine }, new { @class = "bi bi-x-lg btn btn-warning rounded-1 w-25" })
+                }
+            </div>
+        </div>
+    }
+    <div class="mt-2 text-center d-flex flex-column align-items-center">
+
+        @Html.ActionLink(" Visualizza ordini evasi ", "GetNumeroOrdini", new { }, new { @class = " btn btn-success rounded-1 w-25", @onclick = "totalOrders(); return false;" })
+        <p id="totalOrders" class="text-white fs-3"></p>
+
+        <input type="date" id="date" class="form-control w-25 mt-3" />
+        <button class="btn btn-success mt-2" onclick="getRevenueForDay(document.getElementById('date').value)"> Totale incassato</button>
+        <p id="totPerGiorno" class="text-white fs-3"></p>
+
+    </div>
+</div>
+
+
+
+<script>
+
+    function totalOrders() {
+        $.ajax({
+            url: '@Url.Action("GetNumeroOrdini", "Ordini")',
+            type: 'GET',
+            success: function (data) {
+                $('#totalOrders').text('Ordini evasi: ' + data);
+            },
+            error: function () {
+                $('#totalOrders').text('Error retrieving total orders.');
+            }
+        });
+    }
+
+    function getRevenueForDay(date) {
+    $.ajax({
+        url: '@Url.Action("IncassatoPerGiorno", "Ordini")',
+        type: 'GET',
+        data: { data: date },
+        success: function (data) {
+            // Display the revenue in the console or update the UI as needed
+            console.log('Revenue for ' + date + ': ' + data);
+$('#totPerGiorno').text('Incasso per il giorno ' + date + ': ' + data + '€');
+        },
+        error: function () {
+            console.log('Error retrieving revenue for ' + date);
+        }
+    });
 }
 
-</table>
+
+    function loadOrderDetails(orderId) {
+        $.get('@Url.Action("Details", "Ordini")', { id: orderId }, function (data) {
+            $('#orderDetails').html(data);
+        });
+    }
+</script>

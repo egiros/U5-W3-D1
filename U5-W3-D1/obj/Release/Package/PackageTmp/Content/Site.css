@@ -1,0 +1,43 @@
+﻿.roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+.container.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altezza pari all'intera altezza della finestra del browser */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /*background:linear-gradient(-120deg, #ee3124, #00a160, #ffc425) no-repeat;*/
+    /*background-size: cover;*/
+    background-color: #ECECEC;
+}
+
+.nvb-color {
+    background-color: #303337;
+}
+
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+}

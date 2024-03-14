@@ -30,7 +30,7 @@
                         <hr />
                         <div class="d-flex justify-content-between">
                             <div class="d-flex justify-content-start mx-5 mb-3">
-                                @*<input type="submit" value="🛒" class="btn btn-danger fs-2 rounded-circle position-absolute top-50 end-0 translate-x-50 me-2 border border-5 border-white" />*@
+                                <input type="submit" value="🛒" class="btn btn-danger fs-2 rounded-circle position-absolute top-50 end-0 translate-x-50 me-2 border border-5 border-white" />
                                 @Html.ActionLink("Aggiungi al Tuo Ordine", "AddToCart", "Prodotti", new { id = item.idProdotto }, new { @class = "btn btn-success fs-5" })
                             </div>
                             <input type="hidden" name="id" value="@item.idProdotto" />
