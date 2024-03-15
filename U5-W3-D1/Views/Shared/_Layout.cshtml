@@ -43,19 +43,19 @@
                         <i class="material-symbols-outlined" style="vertical-align: top" ;>restaurant</i><span class="d-sm-none d-md-inline">Menù</span><span class="d-none d-lg-inline"> | </span>
                     </a>
                 </li>
-                //if (User.IsInRole("Admin"))
-                //{
+                if (User.IsInRole("Admin"))
+                {
                 <li>
                     <a href="@Url.Action("Index", "Ordini", new { area = "" })" class="nav-link">
                         <i class="material-symbols-outlined" style="vertical-align: top" ;>border_color</i><span class="d-sm-none d-md-inline">Ordini</span><span class="d-none d-lg-inline"> | </span>
                     </a>
                 </li>
-                @*<li>
+               <li>
                     <a href="@Url.Action("Index", "Utenti", new { area = "" })" class="nav-link">
                         <i class="material-symbols-outlined" style="vertical-align: top" ;>person</i><span class="d-sm-none d-md-inline">Utenti</span><span class="d-none d-lg-inline"> | </span>
                     </a>
-                </li>*@
-                //}
+                </li>
+                }
                 <li>
                     <a href="@Url.Action("Index", "Carrello", new { area = "" })" class="nav-link">
                         <i class="material-symbols-outlined" style="vertical-align: top" ;>shopping_cart_checkout</i><span class="d-sm-none d-md-inline">Carrello</span><span class="d-none d-lg-inline"> | </span>

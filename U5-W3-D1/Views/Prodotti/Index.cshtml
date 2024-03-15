@@ -39,13 +39,13 @@
                                 <p class="card-text">@Html.DisplayFor(modelItem => item.Prezzo) €</p>
                         </div>
                     </div>
-                    @*if (User.IsInRole("Admin"))
-            {*@
+                    if (User.IsInRole("Admin"))
+                     {
                     <div class="d-flex justify-content-center mx-5 mb-3 ">
                         @Html.ActionLink("Modifica", "Edit", new { id = item.idProdotto }, new { @class = "btn btn-warning mx-2" })
                         @Html.ActionLink("Elimina", "Delete", new { id = item.idProdotto }, new { @class = "btn btn-danger mx-2" })
                     </div>
-                    @*}*@
+                    }
 
 
                 }
