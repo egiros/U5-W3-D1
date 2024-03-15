@@ -7,9 +7,9 @@
 <h2 class="text-center text-light" style="margin-top:150px";>Utenti</h2>
 
 <div class="box-color p-2">
-    <table>
-        <tr>
-            <th class="mx-3">
+    <table class="w-100">
+        <tr class="h-100">
+            <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
@@ -34,8 +34,8 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td class="mx-3">
+            <tr class="h-100 m-2">
+                <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
@@ -59,11 +59,11 @@
                 <td class="mx-3">
                     @if (item.isAdmin == false)
                     {
-                        @Html.ActionLink("Rendi amministratore", "isAdmin", new { id = item.idUtente }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Rendi amministratore", "isAdmin", new { id = item.idUtente }, new { @class = "btn btn-success m-2" })
                     }
                     else
                     {
-                        @Html.ActionLink("Retrocedi a utente", "isAdmin", new { id = item.idUtente }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Retrocedi a utente", "isAdmin", new { id = item.idUtente }, new { @class = "btn btn-warning m-2" })
                     }
                 </td>
             </tr>

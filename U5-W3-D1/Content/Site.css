@@ -67,6 +67,7 @@ body {
     background-size: cover;
     background-position: center;
     border-radius: 10px;
+    box-shadow: 25px;
 }
 
 /*.material-symbols-outlined {

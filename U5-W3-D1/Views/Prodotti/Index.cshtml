@@ -4,14 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2 class="text-center display-4 my-5 fw-bold text-light" style="margin-top:300px;" >Le Nostre Pizze</h2>
+<h2 class="text-center display-4 mb-5 fw-bold text-light" style="margin-top:100px"; >Le Nostre Pizze</h2>
 
-@*@if (User.IsInRole("Admin"))
-{*@
+@if (User.IsInRole("Admin"))
+{
     <p>
         @Html.ActionLink("Aggiungi Nuovo Prodotto", "Create", new {}, new {@class = "btn btn-warning bg-gradient" })
     </p>
-    @*}*@
+    }
 
 <div class="row g-3">
     @foreach (var item in Model)
