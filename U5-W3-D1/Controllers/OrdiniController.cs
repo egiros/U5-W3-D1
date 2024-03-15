@@ -25,6 +25,16 @@ namespace U5_W3_D1.Controllers
         public ActionResult isEvaso(int id)
         {
             Ordini ordine = db.Ordini.Find(id);
+            ordine.isEvaso = true;
+            db.Entry(ordine).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        // GET: Ordini/Details/5
+        public ActionResult isntEvaso(int id)
+        {
+            Ordini ordine = db.Ordini.Find(id);
             ordine.isEvaso = false;
             db.Entry(ordine).State = EntityState.Modified;
             db.SaveChanges();
@@ -38,6 +48,25 @@ namespace U5_W3_D1.Controllers
                 .Where(o => o.idOrdini_FK == id);
 
             return PartialView("_Details", Dettagli.ToList());
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        public ActionResult OrdiniUtente()
+        {
+            var userId = db.Utenti.FirstOrDefault(u => u.Email == User.Identity.Name).idUtente;
+            var ordini = db.Ordini.Include(o => o.Utenti)
+                .Include(o => o.Dettagli)
+                .Where(o => o.idUtente_FK == userId)
+                .OrderByDescending(o => o.DataOrdine);
+            return View(ordini.ToList());
         }
 
 
@@ -105,14 +134,7 @@ namespace U5_W3_D1.Controllers
             var dettagli = db.Dettagli.Where(d => d.idOrdini_FK == id).Include(d => d.Prodotti);
             return View(dettagli.ToList());
         }
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+
 
 
         public async Task<ActionResult> GetNumeroOrdini()

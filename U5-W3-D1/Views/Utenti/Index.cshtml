@@ -4,12 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Utenti</h2>
+<h2 class="text-center">Utenti</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<table>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
@@ -35,40 +32,41 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cognome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Psw)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isAdmin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cap)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Citta)
-        </td>
-        <td>
-            @if (item.isAdmin == false)
-            {
-                @Html.ActionLink("Promuovi ad amministratore", "isAdmin", new { id = item.idUtente }, new { @class = "btn btn-success" })
-            }
-            else
-            {
-                @Html.ActionLink("Retrocedi a utente", "isAdmin", new { id = item.idUtente }, new { @class = "btn btn-warning" })
-            }
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Psw)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Citta)
+            </td>
+            <td>
+                @if (item.isAdmin == false)
+                {
+                    @Html.ActionLink("Rendi amministratore", "isAdmin", new { id = item.idUtente }, new { @class = "btn btn-success" })
+                }
+                else
+                {
+                    @Html.ActionLink("Retrocedi a utente", "isAdmin", new { id = item.idUtente }, new { @class = "btn btn-warning" })
+                }
+            </td>
+        </tr>
+    }
 
 </table>

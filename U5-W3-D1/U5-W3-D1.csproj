@@ -199,6 +199,46 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\img\Pizza\14342353.jpg" />
+    <Content Include="Content\img\Pizza\5395466993_42d8783c97_b.jpg" />
+    <Content Include="Content\img\Pizza\6D447751-6575-42B0-B984-FEB80BFE76B0.GIF" />
+    <Content Include="Content\img\Pizza\fast-food-pizza-seamless-pattern-KTWECJ.jpg" />
+    <Content Include="Content\img\Pizza\IMG_7748.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7749.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7750.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7751.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7752.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7753.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7754.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7755.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7757.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7758.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7759.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7760.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7761.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7762.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7764.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7766.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7767.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7768.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7769.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7770.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7771.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7772.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7774.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7775.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7776.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7777.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7779.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7780.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7782.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7783.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7785.jpeg" />
+    <Content Include="Content\img\Pizza\IMG_7786.jpeg" />
+    <Content Include="Content\img\Pizza\pizza-4952509_1280.jpg" />
+    <Content Include="Content\img\Pizza\pizza-5298369_1280.jpg" />
+    <Content Include="Content\img\Pizza\pxfuel.jpg" />
+    <Content Include="Content\img\Pizza\slice-brothers-pizza-lifestyle-image.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -262,15 +302,10 @@
     <Content Include="Views\Ordini\OrdiniUtente.cshtml" />
     <Content Include="Views\Ordini\_Details.cshtml" />
     <Content Include="Views\Ordini\Index.cshtml" />
-    <Content Include="Views\Utenti\Create.cshtml" />
-    <Content Include="Views\Utenti\Delete.cshtml" />
-    <Content Include="Views\Utenti\Details.cshtml" />
-    <Content Include="Views\Utenti\Edit.cshtml" />
     <Content Include="Views\Utenti\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

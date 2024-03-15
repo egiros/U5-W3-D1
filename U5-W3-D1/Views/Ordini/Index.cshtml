@@ -4,15 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2 class="text-center heading mt-3 mb-0 myHeading display-2 text-white">Gestione ordini</h2>
+<h2 class="text-center mt-3 mb-0 display-2 text-light" style="margin-bottom:500px;">Gestione ordini</h2>
 
 
 <div id="orderDetails"></div>
 
-<div class="container mt-5">
+<div class="container p-3 mt-5 box-color" >
     @foreach (var item in Model)
     {
-        <div class="row mb-5 text-center mb-md-3 align-items-center border rounded bg-white shadow mx-4 mx-sm-0">
+        <div class="row mb-5 text-center mb-md-3 align-items-center border rounded bg-light text-black shadow mx-4 mx-sm-0">
             <div class="col-12 text-center col-md-1 py-1 py-md-2">
                 <span class="text-secondary">N.</span> @Html.DisplayFor(modelItem => item.idOrdine)
             </div>
@@ -69,12 +69,12 @@
     }
     <div class="mt-2 text-center d-flex flex-column align-items-center">
 
-        @Html.ActionLink(" Visualizza ordini evasi ", "GetNumeroOrdini", new { }, new { @class = " btn btn-success rounded-1 w-25", @onclick = "totalOrders(); return false;" })
-        <p id="totalOrders" class="text-white fs-3"></p>
+        @Html.ActionLink(" Visualizza Totale Ordini Evasi ", "GetNumeroOrdini", new { }, new { @class = " btn btn-warning rounded-1 mt-5 mb-2 w-25", @onclick = "totalOrders(); return false;" })
+        <p id="totalOrders" class="fs-3 mb-5"></p>
 
-        <input type="date" id="date" class="form-control w-25 mt-3" />
-        <button class="btn btn-success mt-2" onclick="getRevenueForDay(document.getElementById('date').value)"> Totale incassato</button>
-        <p id="totPerGiorno" class="text-white fs-3"></p>
+        <input type="date" id="date" class="form-control w-25 mt-5" />
+        <button class="btn btn-warning mt-2 mb-2" onclick="getRevenueForDay(document.getElementById('date').value)">Visualizza Incasso</button>
+        <p id="totPerGiorno" class="fs-3 mb-5"></p>
 
     </div>
 </div>
@@ -98,7 +98,7 @@
 
     function getRevenueForDay(date) {
     $.ajax({
-        url: '@Url.Action("IncassatoPerGiorno", "Ordini")',
+        url: '@Url.Action("IncassatoGiorno", "Ordini")',
         type: 'GET',
         data: { data: date },
         success: function (data) {

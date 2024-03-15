@@ -13,7 +13,6 @@ namespace U5_W3_D1.Controllers
     [Authorize(Roles = "Admin")]
     public class UtentiController : Controller
     {
-        
         private ModelDbContext db = new ModelDbContext();
 
         // GET: Utenti
@@ -30,82 +29,6 @@ namespace U5_W3_D1.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        // GET: Utenti/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Utenti utenti = db.Utenti.Find(id);
-            if (utenti == null)
-            {
-                return HttpNotFound();
-            }
-            return View(utenti);
-        }
-
-        
-
-
-        // GET: Utenti/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Utenti utenti = db.Utenti.Find(id);
-            if (utenti == null)
-            {
-                return HttpNotFound();
-            }
-            return View(utenti);
-        }
-
-        // POST: Utenti/Edit/5
-        // Per la protezione da attacchi di overposting, abilitare le proprietà a cui eseguire il binding. 
-        // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idUtente,Nome,Cognome,Email,Psw,isAdmin,Cap,Citta")] Utenti utenti)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(utenti).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(utenti);
-        }
-
-        // GET: Utenti/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Utenti utenti = db.Utenti.Find(id);
-            if (utenti == null)
-            {
-                return HttpNotFound();
-            }
-            return View(utenti);
-        }
-
-        // POST: Utenti/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Utenti utenti = db.Utenti.Find(id);
-            db.Utenti.Remove(utenti);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

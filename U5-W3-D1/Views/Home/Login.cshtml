@@ -4,12 +4,12 @@
     ViewBag.Title = "Login";
 }
 
-@*@using (Html.BeginForm())
+@using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="container-fluid my-5">
-            <div class="card shadow p-5">
+            <div class="card shadow p-5 box-color">
                 <div class="row justify-content-center">
                     <div class="col-md-6 text-center">
                         <div class="form-horizontal">
@@ -17,6 +17,9 @@
                             <hr />
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+                            <div class="m-2">
+                                <img src="~/Content/img/Pizza/IMG_7760.jpeg" class="img-fluid shadow rounded" />
+                             </div>
                             <div class="form-group my-2">
                                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-4" })
                                 <div class="col-md-12">
@@ -37,7 +40,6 @@
                                 <div class="col-md-offset-2 col-md-12">
                                     <input type="submit" value="Accedi" class="btn btn-primary m-2" /> |
                                     @Html.ActionLink("Registrati", "Register", null, new { @class = "btn btn-primary m-2" })
-                                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-primary m-2" })
                                 </div>
                             </div>
                         </div>
@@ -49,85 +51,5 @@
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
-    }*@
+    }
 
-@{
-    ViewBag.Title = "Login";
-}
-
-<div class="p-3 bg-light rounded-3 bgCard">
-
-
-    <h2>Login</h2>
-
-    <div class="row">
-        <div class="col-6">
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-
-                <div class="form-horizontal fw-bold">
-
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Psw, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Psw, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Psw, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="mt-2 fw-bold">
-                        <p>Non hai un account? @Html.ActionLink("Registrati qui", "Register", "Home", new { }, new { @class = "text-decoration-none" })</p>
-
-                    </div>
-
-
-                    <div class="form-group mt-3">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Accedi" class="btn btn-primary" />
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-        <div class="col-6 p-4 mt-3">
-            <div id="carouselExampleControls" class="carousel slide rounded-3 overflow-hidden shadow" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="~/Content/img/pizza_car1.jpg" class="d-block w-100" alt="Image 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="~/Content/img/pizza_car2.jpg" class="d-block w-100" alt="Image 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="~/Content/img/pizza_car3.jpg" class="d-block w-100" alt="Image 3">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

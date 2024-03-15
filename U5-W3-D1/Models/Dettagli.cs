@@ -16,7 +16,6 @@ namespace U5_W3_D1.Models
 
         public int idProdotto_FK { get; set; }
 
-        [NotMapped]
         public int Quantità { get; set; }
 
         public virtual Ordini Ordini { get; set; }

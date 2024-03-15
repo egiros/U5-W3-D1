@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <nav class="navbar nvb-color navbar-expand-sm navbar-toggleable-sm navbar-dark">
+    <nav class="navbar nvb-color navbar-expand-sm navbar-toggleable-sm navbar-dark fixed-top">
         <div class="container">
             <a href="@Url.Action("Index", "Home", new { area = "" })" class="navbar-brand">
                 <i class="material-symbols-outlined" style="vertical-align: top" ;>local_pizza</i>ARRECREATE
@@ -26,59 +26,59 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="ms-auto">
+                <ul class="navbar-nav flex-grow-1 justify-content-end">
+                    <li>
                         <a href="@Url.Action("Index", "Home", new { area = "" })" class="nav-link">
-                            <i class="material-symbols-outlined" style="vertical-align: top" ;>home</i>Home  |
+                            <i class="material-symbols-outlined" style="vertical-align: top" ;>home</i><span class="d-sm-none d-md-inline">Home</span> <span class="d-none d-lg-inline"> | </span>
                         </a>
                         @*@Html.ActionLink("  Home", "Index", "Home", new { area = "" }, new { @class = "nav-link bi bi-house-door-fill" })*@
                     </li>
                     @*<li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, new { @class = "nav-link" })</li>*@
                     @*<li>@Html.ActionLink("Prodotti", "Index", "Prodotti", new { area = "" }, new { @class = "nav-link" })</li>*@
                     @*<li>@Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
-                    @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
-                    {
-                        <li>
-                            <a href="@Url.Action("Index", "Prodotti", new { area = "" })" class="nav-link">
-                                <i class="material-symbols-outlined" style="vertical-align: top" ;>restaurant</i>Menù  |
-                            </a>
-                        </li>
-                        if (User.IsInRole("Admin"))
-                        {
-                            <li>
-                                <a href="@Url.Action("Index", "Ordini", new { area = "" })" class="nav-link">
-                                    <i class="material-symbols-outlined" style="vertical-align: top" ;>restaurant</i>Ordini  |
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Utenti", new { area = "" })" class="nav-link">
-                                    <i class="material-symbols-outlined" style="vertical-align: top" ;>restaurant</i>Utenti  |
-                                </a>
-                            </li>
-                        }
-                        <li>
-                            <a href="@Url.Action("Index", "Carrello", new { area = "" })" class="nav-link">
-                                <i class="material-symbols-outlined" style="vertical-align: top" ;>shopping_cart_checkout</i>Il Tuo Ordine  |
-                            </a>
-                            @*@Html.ActionLink("  Carrello", "Index", "Carrello", new { area = "" }, new { @class = "nav-link bi bi-cart-check-fill" })*@
-                        </li>
+                    @if (User.Identity.IsAuthenticated@*&& !User.IsInRole("Admin")*@)
+{
+                <li>
+                    <a href="@Url.Action("Index", "Prodotti", new { area = "" })" class="nav-link">
+                        <i class="material-symbols-outlined" style="vertical-align: top" ;>restaurant</i><span class="d-sm-none d-md-inline">Menù</span><span class="d-none d-lg-inline"> | </span>
+                    </a>
+                </li>
+                //if (User.IsInRole("Admin"))
+                //{
+                <li>
+                    <a href="@Url.Action("Index", "Ordini", new { area = "" })" class="nav-link">
+                        <i class="material-symbols-outlined" style="vertical-align: top" ;>border_color</i><span class="d-sm-none d-md-inline">Ordini</span><span class="d-none d-lg-inline"> | </span>
+                    </a>
+                </li>
+                @*<li>
+                    <a href="@Url.Action("Index", "Utenti", new { area = "" })" class="nav-link">
+                        <i class="material-symbols-outlined" style="vertical-align: top" ;>person</i><span class="d-sm-none d-md-inline">Utenti</span><span class="d-none d-lg-inline"> | </span>
+                    </a>
+                </li>*@
+                //}
+                <li>
+                    <a href="@Url.Action("Index", "Carrello", new { area = "" })" class="nav-link">
+                        <i class="material-symbols-outlined" style="vertical-align: top" ;>shopping_cart_checkout</i><span class="d-sm-none d-md-inline">Carrello</span><span class="d-none d-lg-inline"> | </span>
+                    </a>
+                    @*@Html.ActionLink("  Carrello", "Index", "Carrello", new { area = "" }, new { @class = "nav-link bi bi-cart-check-fill" })*@
+                </li>
 
-                        <li>
-                            <a href="@Url.Action("Logout", "Home", new { area = "" })" class="nav-link">
-                                <i class="material-symbols-outlined" style="vertical-align: top" ;>logout</i>
-                            </a>
-                            @*@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link " })*@
-                        </li>
-                    }
-                    else
-                    {
-                        <li>
-                            <a href="@Url.Action("Login", "Home", new { area = "" })" class="nav-link">
-                                <i class="material-symbols-outlined" style="vertical-align: top" ;>person</i>Login
-                            </a>
-                            @*@Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })*@
-                        </li>
-                    }
+                <li>
+                    <a href="@Url.Action("Logout", "Home", new { area = "" })" class="nav-link">
+                        <i class="material-symbols-outlined" style="vertical-align: top" ;></i><span class="d-sm-none d-md-inline">Logout</span>
+                    </a>
+                    @*@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link " })*@
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="@Url.Action("Login", "Home", new { area = "" })" class="nav-link">
+                        <i class="material-symbols-outlined" style="vertical-align: top" ;>person</i><span class="d-sm-none d-md-inline">Login</span>
+                    </a>
+                    @*@Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })*@
+                </li>
+            }
                 </ul>
             </div>
         </div>
@@ -86,9 +86,10 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - ARRECREATE. - Sviluppato da Egidio Roseti</p>
-        </footer>
+            <footer class="nvb-color text-light text-center px-3">
+                <p>&copy; @DateTime.Now.Year - ARRECREATE. - Sviluppato da Egidio Roseti</p>
+            </footer>
+        
     </div>
 
     @Scripts.Render("~/bundles/jquery")
