@@ -4,12 +4,17 @@
     font-style: italic;
 }
 
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     margin-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.no-body-content {
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -27,17 +32,78 @@ textarea {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Kalam", cursive;
+    font-weight: 700;
+    font-style: normal;
     /*background:linear-gradient(-120deg, #ee3124, #00a160, #ffc425) no-repeat;*/
     /*background-size: cover;*/
-    background-color: #ECECEC;
+    /*background-color: #ECECEC;*/
+    background-image: url("img/PizzaPatt.jpg");*/
+    /*background-color: #BE9460;*/
+   /* background: rgb(84,116,61);
+    background: radial-gradient(circle, rgba(84,116,61,1) 33%, rgba(190,148,96,1) 76%, rgba(228,32,19,1) 100%);*/
+  /*  background: rgb(17,118,14);
+    background: linear-gradient(90deg, rgba(17,118,14,1) 0%, rgba(254,254,254,0.9962578781512605) 50%, rgba(182,5,8,1) 100%);*/
 }
 
 .nvb-color {
-    background-color: #303337;
+    /*background-color: #303337;*/
+    background-color: rgba(83, 147, 107, 0.95);
 }
 
+.box-color {
+    /* background-color: #D5B483;*/
+    /*    background-image: url("img/Home/1.jpg");
+    background-size: contain;*/
+    /*    background-color: #A3BF9F;*/
+    /*background-color: #363136;*/
+    background-color: rgba(54, 49, 54, 0.8);
+    color: whitesmoke;
+}
 
-.material-symbols-outlined {
+.box-giallo {
+    background-color: rgba(253, 180, 88, 0.6);
+    color: whitesmoke;
+}
+
+.box-arancio {
+    background-color: rgba(221, 77, 55, 0.6);
+    color: whitesmoke;
+}
+
+.box-verde {
+    background-color: rgba(76, 151, 100, 0.6);
+    color: whitesmoke;
+}
+
+.box-blu {
+    background-color: rgba(29, 53, 77, 0.6);
+    color: whitesmoke;
+}
+
+.box-biacou {
+    background-color: rgba(222, 194, 182, 0.6);
+    color: whitesmoke;
+}
+
+.box-biacoc {
+    background-color: rgba(172, 193, 191, 0.6);
+    color: whitesmoke;
+}
+
+.pizzagnam {
+    background-image: url("img/PizzaGnam.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 25px;
+}
+
+.text-shadow {
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 1);
+}
+
+/*.material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
-}
+}*/

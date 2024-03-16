@@ -48,7 +48,7 @@ body {
 
 .nvb-color {
     /*background-color: #303337;*/
-    background-color: #53936B;
+    background-color: rgba(83, 147, 107, 0.95);
 }
 
 .box-color {
@@ -61,6 +61,36 @@ body {
     color: whitesmoke;
 }
 
+.box-giallo {
+    background-color: rgba(253, 180, 88, 0.6);
+    color: whitesmoke;
+}
+
+.box-arancio {
+    background-color: rgba(221, 77, 55, 0.6);
+    color: whitesmoke;
+}
+
+.box-verde {
+    background-color: rgba(76, 151, 100, 0.6);
+    color: whitesmoke;
+}
+
+.box-blu {
+    background-color: rgba(29, 53, 77, 0.6);
+    color: whitesmoke;
+}
+
+.box-biacou {
+    background-color: rgba(222, 194, 182, 0.6);
+    color: whitesmoke;
+}
+
+.box-biacoc {
+    background-color: rgba(172, 193, 191, 0.6);
+    color: whitesmoke;
+}
+
 .pizzagnam {
     background-image: url("img/PizzaGnam.png");
     background-repeat: no-repeat;
@@ -68,6 +98,10 @@ body {
     background-position: center;
     border-radius: 10px;
     box-shadow: 25px;
+}
+
+.text-shadow {
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 1);
 }
 
 /*.material-symbols-outlined {

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<U5_W3_D1.Models.Dettagli>
+
+
+@{
+    var primoItem = Model.FirstOrDefault();
+}
+
+@if (primoItem != null)
+{
+    <div class="container mb-5">
+        <div class="row justify-content-center text-light">
+            <div class="col-12 text-center">
+                <h2 class="text-center my-4">Dettagli ordine N. @primoItem.idOrdine_FK</h2>
+
+                <div class="mb-3">
+                    <strong>Data ordine:</strong> @primoItem.Ordini.DataOrdine.ToShortDateString()
+                </div>
+
+                <div class="mb-3">
+                    <strong>Orario ordine:</strong> @primoItem.Ordini.DataOrdine.ToShortTimeString()
+                </div>
+
+                <div class="mb-3">
+                    <strong>Cliente:</strong> @primoItem.Ordini.Utenti.Nome @primoItem.Ordini.Utenti.Cognome
+                </div>
+
+                <div class="mb-3">
+                    <strong>Indirizzo:</strong> @primoItem.Ordini.Indirizzo
+                </div>
+
+                <div class="mb-3">
+                    <strong>Note:</strong> @primoItem.Ordini.Note
+                </div>
+
+                <div class="mb-3">
+                    <strong>Stato ordine:</strong>
+                    @if (primoItem.Ordini.isEvaso == false)
+                    {
+                        <span class="badge bg-danger">
+                            Non evaso
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">
+                            Evaso
+                        </span>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <strong>Prodotti:</strong>
+                    <ul class="list-unstyled">
+                        @foreach (var item in Model)
+                        {
+                            <li>@item.Quantita x @item.Prodotti.Nome - @item.Prodotti.Prezzo.ToString("F2")€</li>
+                        }
+                    </ul>
+                </div>
+
+                <div>
+                    @{
+                        decimal totale = 0;
+                        foreach (var item in Model)
+                        {
+                            totale += item.Prodotti.Prezzo * item.Quantita;
+                        }
+                    }
+
+                    <div>
+                        <strong>Totale:</strong> @totale.ToString("F2")€
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

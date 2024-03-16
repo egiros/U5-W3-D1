@@ -4,71 +4,110 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Carrello</h2>
+<h2 class="text-center display-4 mb-5 fw-bold text-light" style="margin-top:100px;">Carrello</h2>
 
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Foto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prezzo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Consegna)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ingredienti)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<div class="box-color p-3">
+    <table class="table bg-light">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                <img src="/Content/img/@Html.DisplayFor(modelItem => item.Foto)" alt="pizza" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prezzo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Consegna.Minutes) Minuti
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ingredienti)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.idProdotto }) |
-                @Html.ActionLink("Details", "Details", new { id = item.idProdotto }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.idProdotto })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezzo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Consegna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ingredienti)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
-<p>Totale: @Model.Sum(item => item.Prezzo * item.Quantità) €</p>
-<p>Totale: @string.Format("{0:F2}", Model.Sum(item => item.Prezzo * item.Quantità)) €</p>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td style="width:15%">
+                    <img src="/Content/img/@Html.DisplayFor(modelItem => item.Foto)" alt="pizza" class="img-fluid rounded"/>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prezzo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantita)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Consegna.Minutes) Minuti
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ingredienti)
+                </td>
+                <td>
+                    @Html.ActionLink("Rimuovi", "Delete", new { id = item.idProdotto }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
 
-@using (Html.BeginForm("Ordina", "Carrello", FormMethod.Post))
-{
-    <div class="input-group">
-        <span class="input-group-text">Note</span>
-        <textarea id="note" name="note" required class="form-control" aria-label="With textarea"></textarea>
-    </div>
+    </table>
+    @*<p>Totale: @Model.Sum(item => item.Prezzo * item.quantita) €</p>
+    <p>Totale: @string.Format("{0:F2}", Model.Sum(item => item.Prezzo * item.quantita)) €</p>*@
 
-    <div class="mb-3">
-        <div class="input-group">
-            <span class="input-group-text" id="basic-addon3">Indirizzo</span>
-            <input type="text" class="form-control" id="indirizzo" name="indirizzo" required aria-describedby="basic-addon3 basic-addon4">
+    <div class=" row">
+        <div class="col-12">
+            <table class="table bg-white border border-secondary rounded-2">
+                <tr>
+                    <th>
+                        Quantita totale
+                    </th>
+                    <th>
+                        Consegna stimata
+                    </th>
+                    <th>
+                        Totale complessivo
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.Sum(item => item.quantita)
+                    </td>
+                    <td>
+                        @Model.Max(item => item.Consegna.Minutes) Minuti
+                    </td>
+                    <td>
+                        @string.Format("{0:F2}", Model.Sum(item => item.Prezzo * item.quantita)) €
+                    </td>
+
+            </table>
+        </div>
+
+        <div class="col-8 offset-2">
+
+            @using (Html.BeginForm("Ordina", "Carrello", FormMethod.Post))
+            {
+                <div class="input-group">
+                    <span class="input-group-text">Aggiungi Note</span>
+                    <textarea id="note" name="note" required class="form-control" aria-label="With textarea"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon3">Indirizzo</span>
+                        <input type="text" class="form-control" id="indirizzo" name="indirizzo" required aria-describedby="basic-addon3 basic-addon4">
+                    </div>
+                </div>
+                <input type="submit" value="Ordina" class="btn btn-warning" />
+            }
         </div>
     </div>
-    <input type="submit" value="Ordina" />
-}
+
+</div>
+

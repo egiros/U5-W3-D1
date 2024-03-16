@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\egidio\Desktop\ProvaDeploy</_PublishTargetUrl>
-    <History>True|2024-03-14T11:15:05.0339196Z;True|2024-03-14T11:19:06.5448896+01:00;</History>
+    <History>True|2024-03-16T11:27:59.8771264Z;True|2024-03-16T12:05:06.4912004+01:00;True|2024-03-16T10:04:48.1633062+01:00;True|2024-03-15T19:45:13.6825015+01:00;True|2024-03-15T19:18:42.9639971+01:00;True|2024-03-15T19:04:05.1117458+01:00;True|2024-03-15T18:54:33.5250773+01:00;True|2024-03-15T18:54:26.1827765+01:00;False|2024-03-15T18:53:10.8633551+01:00;False|2024-03-15T18:52:19.3346139+01:00;False|2024-03-15T18:45:46.4267270+01:00;False|2024-03-15T18:44:52.9254666+01:00;False|2024-03-15T18:41:37.0139810+01:00;False|2024-03-15T18:36:46.6835024+01:00;False|2024-03-15T18:35:48.7187820+01:00;True|2024-03-14T12:15:05.0339196+01:00;True|2024-03-14T11:19:06.5448896+01:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -301,10 +301,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/28/2022 00:42:50</publishTime>
     </File>
     <File Include="bin/U5-W3-D1.dll">
-      <publishTime>03/14/2024 11:19:05</publishTime>
+      <publishTime>03/16/2024 12:27:49</publishTime>
     </File>
     <File Include="bin/U5-W3-D1.pdb">
-      <publishTime>03/14/2024 11:19:05</publishTime>
+      <publishTime>03/16/2024 12:27:49</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -405,8 +405,149 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/bootstrap.rtl.min.css.map">
       <publishTime>03/11/2024 14:36:03</publishTime>
     </File>
+    <File Include="Content/img/BiancaeVerde.jpeg">
+      <publishTime>03/13/2024 17:09:33</publishTime>
+    </File>
+    <File Include="Content/img/Capricciosa.jpeg">
+      <publishTime>03/13/2024 17:13:10</publishTime>
+    </File>
+    <File Include="Content/img/Filetto.jpeg">
+      <publishTime>03/13/2024 17:17:57</publishTime>
+    </File>
+    <File Include="Content/img/Margherita.jpg">
+      <publishTime>03/11/2024 17:44:52</publishTime>
+    </File>
+    <File Include="Content/img/Margherita2.jpeg">
+      <publishTime>03/13/2024 17:21:47</publishTime>
+    </File>
+    <File Include="Content/img/Napoli.jpeg">
+      <publishTime>03/14/2024 15:42:19</publishTime>
+    </File>
+    <File Include="Content/img/Particolare.jpeg">
+      <publishTime>03/14/2024 15:42:31</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/fast-food-pizza-seamless-pattern-KTWECJ.jpg">
+      <publishTime>03/15/2024 09:17:30</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7748.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7749.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7750.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7751.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7752.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7753.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7754.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7758.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7759.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7760.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7761.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7762.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7764.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7766.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7767.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7768.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7769.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7770.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7771.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7772.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7774.jpeg">
+      <publishTime>03/15/2024 12:39:15</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7775.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7776.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7777.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7779.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7780.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7782.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7783.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7785.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/IMG_7786.jpeg">
+      <publishTime>03/15/2024 12:39:16</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/pizza-4952509_1280.jpg">
+      <publishTime>03/15/2024 09:16:42</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/pizza-5298369_1280.jpg">
+      <publishTime>03/15/2024 09:16:30</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/pxfuel.jpg">
+      <publishTime>03/14/2024 15:34:48</publishTime>
+    </File>
+    <File Include="Content/img/Pizza/slice-brothers-pizza-lifestyle-image.jpg">
+      <publishTime>03/15/2024 09:20:54</publishTime>
+    </File>
+    <File Include="Content/img/PizzaGnam.png">
+      <publishTime>03/15/2024 14:30:01</publishTime>
+    </File>
+    <File Include="Content/img/PizzaPatt.jpg">
+      <publishTime>03/15/2024 15:21:57</publishTime>
+    </File>
+    <File Include="Content/img/Salsiccia e Friarelli.jpeg">
+      <publishTime>03/14/2024 15:42:48</publishTime>
+    </File>
+    <File Include="Content/img/Vegetariana.jpeg">
+      <publishTime>03/14/2024 15:43:24</publishTime>
+    </File>
+    <File Include="Content/img/Wurstel e Patatine.jpeg">
+      <publishTime>03/14/2024 15:43:09</publishTime>
+    </File>
     <File Include="Content/Site.css">
-      <publishTime>03/13/2024 12:48:42</publishTime>
+      <publishTime>03/16/2024 11:51:50</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>03/11/2024 14:36:01</publishTime>
@@ -484,19 +625,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/12/2024 15:07:41</publishTime>
     </File>
     <File Include="Views/Carrello/Index.cshtml">
-      <publishTime>03/13/2024 15:52:51</publishTime>
+      <publishTime>03/16/2024 12:04:14</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>03/13/2024 13:28:16</publishTime>
+      <publishTime>03/16/2024 12:27:36</publishTime>
     </File>
     <File Include="Views/Home/Login.cshtml">
-      <publishTime>03/13/2024 16:43:32</publishTime>
+      <publishTime>03/15/2024 16:22:09</publishTime>
     </File>
     <File Include="Views/Home/Logout.cshtml">
       <publishTime>03/12/2024 12:37:42</publishTime>
     </File>
     <File Include="Views/Home/Register.cshtml">
-      <publishTime>03/11/2024 16:15:04</publishTime>
+      <publishTime>03/16/2024 12:19:22</publishTime>
     </File>
     <File Include="Views/Ordini/Create.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -511,10 +652,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/13/2024 15:53:01</publishTime>
     </File>
     <File Include="Views/Ordini/Index.cshtml">
-      <publishTime>03/13/2024 16:29:14</publishTime>
+      <publishTime>03/16/2024 12:03:44</publishTime>
+    </File>
+    <File Include="Views/Ordini/OrdiniUtente.cshtml">
+      <publishTime>03/14/2024 16:45:29</publishTime>
+    </File>
+    <File Include="Views/Ordini/_Details.cshtml">
+      <publishTime>03/15/2024 11:21:41</publishTime>
     </File>
     <File Include="Views/Prodotti/Create.cshtml">
-      <publishTime>03/11/2024 15:49:32</publishTime>
+      <publishTime>03/14/2024 15:59:36</publishTime>
     </File>
     <File Include="Views/Prodotti/Delete.cshtml">
       <publishTime>03/11/2024 15:49:33</publishTime>
@@ -523,16 +670,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/12/2024 17:20:36</publishTime>
     </File>
     <File Include="Views/Prodotti/Edit.cshtml">
-      <publishTime>03/11/2024 15:49:34</publishTime>
+      <publishTime>03/15/2024 16:58:48</publishTime>
     </File>
     <File Include="Views/Prodotti/Index.cshtml">
-      <publishTime>03/13/2024 18:37:40</publishTime>
+      <publishTime>03/16/2024 11:06:35</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>03/11/2024 14:36:01</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/13/2024 18:11:26</publishTime>
+      <publishTime>03/16/2024 11:24:11</publishTime>
+    </File>
+    <File Include="Views/Utenti/Index.cshtml">
+      <publishTime>03/16/2024 12:03:14</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/14/2024 12:06:45</publishTime>
@@ -541,7 +691,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/11/2024 14:36:01</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/14/2024 12:15:04</publishTime>
+      <publishTime>03/16/2024 12:27:59</publishTime>
     </File>
   </ItemGroup>
 </Project>

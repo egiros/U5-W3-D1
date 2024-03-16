@@ -4,20 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Le Nostre Pizze</h2>
+<h2 class="text-center display-4 mb-5 fw-bold text-light" style="margin-top:100px"; >Le Nostre Pizze</h2>
 
-@*@if (User.IsInRole("Admin"))*@
-@*{*@
+@if (User.IsInRole("Admin"))
+{
     <p>
         @Html.ActionLink("Aggiungi Nuovo Prodotto", "Create", new {}, new {@class = "btn btn-warning bg-gradient" })
     </p>
-@*}*@
+    }
 
 <div class="row g-3">
     @foreach (var item in Model)
     {
         <div class="col-12 col-md-10 offset-md-1">
-            <div class="card h-100 overflow-hidden shadow">
+            <div class="card h-100 overflow-hidden shadow box-color">
                 <img src="/content/img/@Html.DisplayFor(modelItem => item.Foto)" class="card-img-top" alt="@Html.DisplayNameFor(model => model.Foto)">
 
                 @using (Html.BeginForm("AddToCart", "Prodotti", FormMethod.Post))
@@ -28,25 +28,24 @@
                         <p class="card-text overflow-hidden fs-5"><strong>Ingredienti: </strong>@Html.DisplayFor(modelItem => item.Ingredienti)</p>
                         <p class="car-text"><strong>Tempo di preparazione: </strong>@Html.DisplayFor(modelItem => item.Consegna.Minutes) Minuti</p>
                         <hr />
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex justify-content-start mx-5 mb-3">
-                                @*<input type="submit" value="🛒" class="btn btn-danger fs-2 rounded-circle position-absolute top-50 end-0 translate-x-50 me-2 border border-5 border-white" />*@
-                                @Html.ActionLink("Aggiungi al Tuo Ordine", "AddToCart", "Prodotti", new { id = item.idProdotto }, new { @class = "btn btn-success fs-5" })
+                        <div class="card-text d-flex justify-content-between">
+                            <div class="d-flex justify-content-start mb-3">
+                                <input type="submit" value="Aggiunti al Tuo Ordine +" class="btn btn-success" />
                             </div>
-                            <input type="hidden" name="id" value="@item.idProdotto" />
+                                <input type="hidden" name="id" value="@item.idProdotto" />
 
-                            <label for="quantita" class="fs-5">Quantit&agrave;:  <input class="h-50" type="number" name="quantita" id="quantita" value="1" min="1" max="30"></label>
+                                <label for="quantita" class="">Quantit&agrave;: <input class="h-50" type="number" name="quantita" id="quantita" value="1" min="1" max="30"></label>
 
-                            <p class="card-text fs-5">@Html.DisplayFor(modelItem => item.Prezzo) €</p>
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.Prezzo) €</p>
                         </div>
                     </div>
-                    @*if (User.IsInRole("Admin"))
-            {*@
+                    if (User.IsInRole("Admin"))
+                     {
                     <div class="d-flex justify-content-center mx-5 mb-3 ">
                         @Html.ActionLink("Modifica", "Edit", new { id = item.idProdotto }, new { @class = "btn btn-warning mx-2" })
                         @Html.ActionLink("Elimina", "Delete", new { id = item.idProdotto }, new { @class = "btn btn-danger mx-2" })
                     </div>
-                    @*}*@
+                    }
 
 
                 }

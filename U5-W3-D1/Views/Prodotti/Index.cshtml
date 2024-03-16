@@ -17,7 +17,7 @@
     @foreach (var item in Model)
     {
         <div class="col-12 col-md-10 offset-md-1">
-            <div class="card h-100 overflow-hidden shadow">
+            <div class="card h-100 overflow-hidden shadow box-color">
                 <img src="/content/img/@Html.DisplayFor(modelItem => item.Foto)" class="card-img-top" alt="@Html.DisplayNameFor(model => model.Foto)">
 
                 @using (Html.BeginForm("AddToCart", "Prodotti", FormMethod.Post))

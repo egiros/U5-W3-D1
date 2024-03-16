@@ -199,9 +199,15 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\img\Pizza\14342353.jpg" />
-    <Content Include="Content\img\Pizza\5395466993_42d8783c97_b.jpg" />
-    <Content Include="Content\img\Pizza\6D447751-6575-42B0-B984-FEB80BFE76B0.GIF" />
+    <Content Include="Content\img\BiancaeVerde.jpeg" />
+    <Content Include="Content\img\Capricciosa.jpeg" />
+    <Content Include="Content\img\Filetto.jpeg" />
+    <Content Include="Content\img\Margherita.jpg" />
+    <Content Include="Content\img\Margherita2.jpeg" />
+    <Content Include="Content\img\Napoli.jpeg" />
+    <Content Include="Content\img\Particolare.jpeg" />
+    <Content Include="Content\img\PizzaGnam.png" />
+    <Content Include="Content\img\PizzaPatt.jpg" />
     <Content Include="Content\img\Pizza\fast-food-pizza-seamless-pattern-KTWECJ.jpg" />
     <Content Include="Content\img\Pizza\IMG_7748.jpeg" />
     <Content Include="Content\img\Pizza\IMG_7749.jpeg" />
@@ -210,8 +216,6 @@
     <Content Include="Content\img\Pizza\IMG_7752.jpeg" />
     <Content Include="Content\img\Pizza\IMG_7753.jpeg" />
     <Content Include="Content\img\Pizza\IMG_7754.jpeg" />
-    <Content Include="Content\img\Pizza\IMG_7755.jpeg" />
-    <Content Include="Content\img\Pizza\IMG_7757.jpeg" />
     <Content Include="Content\img\Pizza\IMG_7758.jpeg" />
     <Content Include="Content\img\Pizza\IMG_7759.jpeg" />
     <Content Include="Content\img\Pizza\IMG_7760.jpeg" />
@@ -239,6 +243,9 @@
     <Content Include="Content\img\Pizza\pizza-5298369_1280.jpg" />
     <Content Include="Content\img\Pizza\pxfuel.jpg" />
     <Content Include="Content\img\Pizza\slice-brothers-pizza-lifestyle-image.jpg" />
+    <Content Include="Content\img\Salsiccia e Friarelli.jpeg" />
+    <Content Include="Content\img\Vegetariana.jpeg" />
+    <Content Include="Content\img\Wurstel e Patatine.jpeg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
