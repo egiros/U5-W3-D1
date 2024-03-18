@@ -37,5 +37,14 @@ namespace U5_W3_D1.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Delete(int id)
+        {
+            Utenti utente = db.Utenti.Find(id);
+            db.Utenti.Remove(utente);
+            db.SaveChanges();
+            TempData["Message"] = "Utente eliminato";
+            return RedirectToAction("Index");
+        }
     }
 }

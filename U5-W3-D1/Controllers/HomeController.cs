@@ -54,20 +54,27 @@ namespace U5_W3_D1.Controllers
 
         public ActionResult Register()
         {
-
+             
             return View();
         }
 
         [HttpPost]
             public ActionResult Register(Utenti utente)
             {
+            if (ModelState.IsValid)
+            {
                 using (var context = new ModelDbContext())
                 {
                     context.Utenti.Add(utente);
                     context.SaveChanges();
+                    TempData["Message"] = "Utente registrato con successo";
                 }
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Login", "Home");
             }
+
+             return View(utente);
+        }
     }
 
 }

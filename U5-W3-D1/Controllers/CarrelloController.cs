@@ -121,6 +121,7 @@ namespace U5_W3_D1.Controllers
                 // Save the order to the database
                 db.Ordini.Add(newOrder);
                 db.SaveChanges();
+                TempData["Message"] = "Ordine effettuato con successo";
 
                 foreach (var product in cart)
                 {
@@ -132,6 +133,7 @@ namespace U5_W3_D1.Controllers
                     // Save the order detail to the database
                     db.Dettagli.Add(newDetail);
                     db.SaveChanges();
+                   
                 }
 
                 // Clear the cart

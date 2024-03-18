@@ -4,14 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2 class="text-center display-4 mb-5 fw-bold text-light" style="margin-top:100px"; >Le Nostre Pizze</h2>
+<h2 class="text-center display-4 mb-5 fw-bold text-light" style="margin-top:100px" ;>Le Nostre Pizze</h2>
 
 @if (User.IsInRole("Admin"))
 {
     <p>
-        @Html.ActionLink("Aggiungi Nuovo Prodotto", "Create", new {}, new {@class = "btn btn-warning bg-gradient" })
+        @Html.ActionLink("Aggiungi Nuovo Prodotto", "Create", new { }, new { @class = "btn btn-warning bg-gradient" })
     </p>
-    }
+}
 
 <div class="row g-3">
     @foreach (var item in Model)
@@ -32,19 +32,19 @@
                             <div class="d-flex justify-content-start mb-3">
                                 <input type="submit" value="Aggiunti al Tuo Ordine +" class="btn btn-success" />
                             </div>
-                                <input type="hidden" name="id" value="@item.idProdotto" />
+                            <input type="hidden" name="id" value="@item.idProdotto" />
 
-                                <label for="quantita" class="">Quantit&agrave;: <input class="h-50" type="number" name="quantita" id="quantita" value="1" min="1" max="30"></label>
+                            <label for="quantita" class="">Quantit&agrave;: <input class="h-50" type="number" name="quantita" id="quantita" value="1" min="1" max="30"></label>
 
-                                <p class="card-text">@Html.DisplayFor(modelItem => item.Prezzo) €</p>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Prezzo) €</p>
                         </div>
                     </div>
                     if (User.IsInRole("Admin"))
-                     {
-                    <div class="d-flex justify-content-center mx-5 mb-3 ">
-                        @Html.ActionLink("Modifica", "Edit", new { id = item.idProdotto }, new { @class = "btn btn-warning mx-2" })
-                        @Html.ActionLink("Elimina", "Delete", new { id = item.idProdotto }, new { @class = "btn btn-danger mx-2" })
-                    </div>
+                    {
+                        <div class="d-flex justify-content-center mx-5 mb-3 ">
+                            @Html.ActionLink("Modifica", "Edit", new { id = item.idProdotto }, new { @class = "btn btn-warning mx-2" })
+                            @Html.ActionLink("Elimina", "Delete", new { id = item.idProdotto }, new { @class = "btn btn-danger mx-2" })
+                        </div>
                     }
 
 
@@ -53,56 +53,14 @@
         </div>
     }
 </div>
-    @*<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Foto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezzo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Consegna)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ingredienti)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    <img src="/content/img/@Html.DisplayFor(modelItem => item.Foto)" alt="pizza" class="w-25" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Prezzo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Consegna.Minutes) Minuti
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ingredienti)
-                </td>
-                <td>
-
-                    <input type="number" name="quantita" value="1" min="1" max="30">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.idProdotto }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.idProdotto }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.idProdotto })
-                    <div class="btn btn-success menu-button rounded-0 buy-button px-4 ms-2" onclick="location.href='@Url.Action("AddToCart", "Prodotti", new { id = item.idProdotto })'">@item.Prezzo.ToString("F2")€</div>
-                </td>
 
 
-            </tr>
-        }
+@if (TempData["Message"] != null)
+{
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+                    toastr.success('@TempData["Message"]');
+    </script>
 
-    </table>*@
-
+}

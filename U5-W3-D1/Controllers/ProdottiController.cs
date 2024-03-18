@@ -53,6 +53,7 @@ namespace U5_W3_D1.Controllers
             {
                 db.Prodotti.Add(prodotti);
                 db.SaveChanges();
+                TempData["CreateMess"] = "Prodotto creato correttamente";
                 return RedirectToAction("Index");
             }
 
@@ -142,7 +143,7 @@ namespace U5_W3_D1.Controllers
                     cart.Add(prodotto);
                 }
                 Session["cart"] = cart;
-                TempData["CreateMess"] = "Prodotto aggiunto al carrello";
+                TempData["Message"] = "Prodotto aggiunto al carrello";
             }
             return RedirectToAction("Index");
         }

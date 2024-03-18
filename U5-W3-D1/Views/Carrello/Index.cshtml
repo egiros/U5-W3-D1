@@ -37,7 +37,7 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td style="width:15%">
-                    <img src="/Content/img/@Html.DisplayFor(modelItem => item.Foto)" alt="pizza" class="img-fluid rounded"/>
+                    <img src="/Content/img/@Html.DisplayFor(modelItem => item.Foto)" alt="pizza" class="img-fluid rounded" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Prezzo)
@@ -59,7 +59,7 @@
 
     </table>
     @*<p>Totale: @Model.Sum(item => item.Prezzo * item.quantita) €</p>
-    <p>Totale: @string.Format("{0:F2}", Model.Sum(item => item.Prezzo * item.quantita)) €</p>*@
+        <p>Totale: @string.Format("{0:F2}", Model.Sum(item => item.Prezzo * item.quantita)) €</p>*@
 
     <div class=" row">
         <div class="col-12">
@@ -111,3 +111,12 @@
 
 </div>
 
+@if (TempData["Message"] != null)
+{
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+                    toastr.success('@TempData["Message"]');
+    </script>
+
+}
